@@ -2,13 +2,7 @@ import os
 import mysql.connector as database
 
 
-connection = database.connect(
-    user = 'root',
-    password = 'Aurinko88',
-    host = '127.0.0.1',
-    database = "forforecasting")
 
-cursor = connection.cursor()
 
 def get_data(tableName, columnName, start, stop):
     try:
@@ -23,6 +17,13 @@ def get_data(tableName, columnName, start, stop):
     except database.Error as e:
       print(f"Error retrieving entry from database: {e}")
 
+connection = database.connect(
+    user = 'root',
+    password = '*****',
+    host = '127.0.0.1',
+    database = "forforecasting")
+
+cursor = connection.cursor()
 
 get_data('load', 'kWh', '2021-01-01 00:00:00', '2021-01-01 23:59:59')
 
